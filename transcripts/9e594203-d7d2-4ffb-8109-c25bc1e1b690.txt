@@ -1,0 +1,14 @@
+[2025-08-08 19:08:59] USER: What is the total sales volume for the C&I segment by Region?
+
+
+[2025-08-08 19:08:59] BOT : **SQL Result:**
+| Region        | total_volume |
+| ------------- | ------------ |
+| North         | 1513819     |
+| West          | 1278518.0   |
+| East          | 1073550     |
+| South         | 818259      |
+| BANGLADESH   | 75600       |
+
+The total sales volume for the C&I segment by Region is: The North region has the highest total sales volume with $1,513,819, followed by the West region with $1,278,518, then the East region with $1,073,550, the South region with $818,259, and finally BANGLADESH with $75,600.
+

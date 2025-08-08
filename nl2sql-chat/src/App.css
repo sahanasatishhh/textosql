@@ -1,0 +1,204 @@
+/* Global ---------------------------------------------------- */
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  background:#0f172a;
+  color:#e2e8f0;
+  font-family:system-ui,sans-serif;
+  min-height:100vh;          
+  margin:0;                  
+  padding:2rem 0;
+  align-items: center;
+  justify-content: center;         
+}
+
+/* Wrapper --------------------------------------------------- */
+.chat-wrapper{
+  width: clamp(320px, 80vw, 720px);
+  margin-inline:auto;
+  display:flex;
+  flex-direction:column;
+  height:90vh;                
+}
+
+h1{
+  font-size:2.5rem;
+  font-weight:700;
+  margin-bottom:1rem;
+  color:#e0f2fe;             
+}
+
+/* Scrollable conversation area ----------------------------- */
+.chat-box{
+  flex:1;
+  overflow-y:auto;
+  padding:1rem;
+  display:flex;
+  flex-direction:column;
+  gap:0.75rem;
+  background:#1e293b;         
+  border:1px solid #334155;   
+}
+
+/* Chat bubble base ----------------------------------------- */
+.msg{
+  max-width:80%;
+  padding:0.6rem 1rem;
+  font-size:0.95rem;
+  line-height:1.4;
+  border-radius:16px;
+  word-break:break-word;
+  width:fit-content;
+}
+
+/* User bubble (right, dark blue) --------------------------- */
+.msg.user{
+  align-self:flex-end;
+  background:#2563eb;          
+  color:white;
+  border-bottom-right-radius:4px; 
+}
+
+/* Assistant bubble (left, light blue) ---------------------- */
+.msg.assistant{
+  align-self:flex-start;
+  background:#e0f2fe;          
+  color:#1e3a8a;              
+  border-bottom-left-radius:4px;
+}
+
+/* Input area ------------------------------------------------ */
+.controls{
+  margin-top:1rem;
+  display:flex;
+  gap:0.5rem;
+}
+
+textarea{
+  flex:1;
+  background:#1e293b;
+  color:#e2e8f0;
+  border:1px solid #334155;
+  padding:0.6rem;
+  border-radius:6px;
+  resize:vertical;
+  min-height:3rem;
+}
+
+button{
+  padding:0 1.25rem;
+  border:none;
+  background:#0ea5e9;        
+  color:#fff;
+  font-weight:600;
+  border-radius:6px;
+  cursor:pointer;
+  transition:background 0.2s;
+}
+button:hover{background:#0284c7;} 
+button:disabled{background:#334155;cursor:not-allowed}
+
+
+/* header flex so download btn sits right */
+.chat-header{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  margin-bottom:0.75rem;
+}
+.dl-btn{
+  background:#475569;border:none;border-radius:6px;
+  color:#e2e8f0;font-size:.9rem;padding:0 .6rem;cursor:pointer;
+}
+.dl-btn:hover{background:#64748b}
+
+/* floating glossary toggle */
+.glossary-toggle{
+  position:fixed;
+  bottom:2rem;
+  right:2rem;              
+  width:48px;height:48px;
+  border-radius:50%;
+  border:none;color:#fff;
+  font-size:1.4rem;font-weight:700;
+  cursor:pointer;
+  box-shadow:0 4px 10px rgba(0,0,0,.3);
+  transition:right .25s ease;       
+  z-index:40;
+  display:flex;              
+  align-items:center;       
+  justify-content:center;   
+  padding:0;                
+  line-height:1;
+}
+
+.glossary-toggle.open{
+  right:282px;          
+}
+
+/* side panel --------------------------------------------------------- */
+.glossary-panel{
+  position:fixed;top:0;right:-280px;
+  width:280px;height:100vh;
+  background:#60a5fa;           /* blue-400 */
+  color:#0f172a;                /* slate-900 */
+  box-shadow:-4px 0 18px rgba(0,0,0,.35);
+  transition:right .25s ease;
+  z-index:39;
+  display:flex;flex-direction:column;
+  padding:1.3rem 1rem 1rem;
+}
+.glossary-panel.show{right:0}
+
+/* title & headings --------------------------------------------------- */
+.glossary-panel h2{
+  margin:0 0 .8rem;
+  font-size:1.4rem;
+}
+.glossary-panel h3{
+  margin:.9rem 0 .4rem;
+  font-size:1.05rem;
+  font-weight:600;
+}
+
+/* scroll container --------------------------------------------------- */
+.glossary-body{
+  overflow-y:auto;
+  padding-right:.3rem;  /* room for scrollbar */
+}
+
+/* card look for each tip -------------------------------------------- */
+.card{
+  background:#f8fafc;           /* slate-50 */
+  padding:.55rem .7rem;
+  border-radius:6px;
+  box-shadow:0 1px 3px rgba(0,0,0,.1);
+  font-size:.86rem;
+  line-height:1.35;
+  margin-bottom:.6rem;
+}
+.card code{
+  background:#e2e8f0;           /* slate-200 */
+  padding:1px 4px;border-radius:4px;
+  font-size:.82rem;
+}
+
+
+.msg table{
+  border-collapse: collapse;   /* merge borders */
+  margin-left:auto;
+  margin-right:auto;
+  font-size: 0.9rem;
+  width: 100%;
+}
+
+.msg th,
+.msg td{
+  border: 1px solid #94a3b8;   /* slate-400 */
+  padding: 0.35rem 0.6rem;
+}
+
+.msg th{
+  background: #e2e8f0;         /* slate-200 */
+  font-weight: 600;
+  text-align: left;
+}
